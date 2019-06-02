@@ -43,8 +43,12 @@ t2 = 0.15
 wCrtYd = 0.05
 wFab = 0.1
 wSilkS = 0.12
-crtYd = 0.3
+crtYdClearance = 0.5
 silkClearance = 0.2
+
+padSizeDiffFromHole = 0.7
+padSize = [padHoleSize + padSizeDiffFromHole, padHoleSize + padSizeDiffFromHole]
+padDrill = [padHoleSize, padHoleSize]
 
 xCenter = 0.0
 xFabBaseLeft = outletWidth - ((baseWidth + outletWidth) / 2)
@@ -54,10 +58,10 @@ xBackPad = xFabBaseLeft + backPadOffset
 xFabRight = (outletWidth + baseWidth) / 2
 xSilkRight = xFabRight + silkClearance
 xSilkFrontPadRight = xFrontPad + padHoleSize
-xRightCrtYd = xSilkRight + crtYd
+xRightCrtYd = xBackPad + padSize[0] / 2 + crtYdClearance
 
-xLeftCrtYd = - xRightCrtYd
 xFabLeft = -xFabRight
+xLeftCrtYd = xFabLeft - crtYdClearance
 xSilkBaseLeft = xFabBaseLeft - silkClearance
 xSilkLeft = -xSilkRight
 xSilkFrontPadLeft = xFrontPad - padHoleSize
@@ -72,7 +76,7 @@ yFabBottom = baseHeight / 2
 ySilkBottom = yFabBottom + silkClearance
 ySilkOutletBottom = yFabOutletBottom + silkClearance
 ySilkBackPadBottom = yBackPadBottom - padHoleSize
-yBottomCrtYd = ySilkBottom + crtYd
+yBottomCrtYd = yFrontPadBottom + mountingHoleSize + crtYdClearance
 
 yFrontPadTop = -yFrontPadBottom
 yMountingHoleTop = -yMountingHoleBottom
@@ -84,8 +88,8 @@ ySilkOutletTop = -ySilkOutletBottom
 ySilkBackPadTop = -ySilkBackPadBottom
 yTopCrtYd = -yBottomCrtYd
 
-yValue = yFabBottom + 1.25
-yRef = yFabTop - 1.25
+yValue = yBottomCrtYd + s[0]
+yRef = ySilkTop - s[0]
 
 f.append(Text(type="reference", text="REF**", at=[xCenter, yRef],
               layer="F.SilkS", size=s, thickness=t2))
@@ -127,11 +131,6 @@ f.append(Line(start=[xSilkFrontPadRight, ySilkBottom],
 f.append(Line(start=[xSilkRight, ySilkBackPadTop],
               end=[xSilkRight, ySilkBackPadBottom],
               layer="F.SilkS", width=wSilkS))
-
-padShape = Pad.SHAPE_ROUNDRECT
-radiusRatio = 0.2
-padSize = [padHoleSize + 0.7, padHoleSize + 0.7]
-padDrill = [padHoleSize, padHoleSize]
 
 f.append(Pad(number="T", type=Pad.TYPE_THT, shape=Pad.SHAPE_CIRCLE,
              at=[xFrontPad, yFrontPadTop], size=padSize,
