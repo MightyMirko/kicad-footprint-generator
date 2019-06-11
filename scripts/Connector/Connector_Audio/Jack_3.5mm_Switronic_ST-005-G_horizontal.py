@@ -88,8 +88,8 @@ ySilkOutletTop = -ySilkOutletBottom
 ySilkBackPadTop = -ySilkBackPadBottom
 yTopCrtYd = -yBottomCrtYd
 
-yValue = yBottomCrtYd + s[0]
-yRef = ySilkTop - s[0]
+yValue = yFabBottom + 1.25
+yRef = yFabTop - 1.25
 
 f.append(Text(type="reference", text="REF**", at=[xCenter, yRef],
               layer="F.SilkS", size=s, thickness=t2))
