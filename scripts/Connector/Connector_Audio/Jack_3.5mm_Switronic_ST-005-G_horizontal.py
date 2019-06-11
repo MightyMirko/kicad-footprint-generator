@@ -13,17 +13,17 @@ footprint_name = "Jack_3.5mm_Switronic_ST-005-G_horizontal"
 
 baseWidth = 11.5
 baseHeight = 6.5
-outletHeight = 5
+outletHeight = 5.0
 outletWidth = 2.5
 
 padHoleSize = 1.2
-mountingHoleSize = 1
+mountingHoleSize = 1.0
 
 frontPadOffset = 3.5
 frontPadSpacing = 5.8
-mountingHoleOffset = 7
-mountingHoleSpacing = 5
-backPadOffset = 11
+mountingHoleOffset = 7.0
+mountingHoleSpacing = 5.0
+backPadOffset = 11.0
 backPadSpacing = 4.5
 
 f = Footprint(footprint_name)
