@@ -76,7 +76,7 @@ yFabBottom = baseHeight / 2
 ySilkBottom = yFabBottom + silkClearance
 ySilkOutletBottom = yFabOutletBottom + silkClearance
 ySilkBackPadBottom = yBackPadBottom - padHoleSize
-yBottomCrtYd = yFrontPadBottom + mountingHoleSize + crtYdClearance
+yBottomCrtYd = yFrontPadBottom + padSize[0] / 2 + crtYdClearance
 
 yFrontPadTop = -yFrontPadBottom
 yMountingHoleTop = -yMountingHoleBottom
